@@ -1,49 +1,182 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <title>GT-league</title><!-- gt万岁 -->
+    <meta charset="UTF-8">
+    <title>GT网</title>
     <link rel="shortcut icon" href="images/favicon.ico">
     <style>
-        .button {
-            background-color: #2e85e9;
-            border: none;
-            color: white;
-            padding: 20px 40px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 40px;
-            margin: 4px 2px;
-            cursor: pointer;
-            -webkit-transition-duration: 0.4s;
-            transition-duration: 0.4s;
+        body {
+            background-color: black;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
+        /* 设置星星样式 */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background-color: #FFF;
+            animation: twinkle 1.5s infinite;
+        }
+        @keyframes twinkle {
+            0% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 0.5;
+            }
+        }
 
+        /* 设置容器样式 */
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            max-width: 600px;
+            max-height: 600px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
+        /* 设置图片样式 */
+        .image {
+            width: 50%;
+            max-width: 500px;
+            height: auto;
+            margin-bottom: 50px;
+        }
+
+        /* 设置按钮样式 */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            text-decoration: none;
+            color: #FFF;
+            font-size: 20px;
+            transition-duration: 0.4s;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
         .button:hover {
-            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            background-color: #FFF;
+            color: #000;
+        }
+
+        /* 设置水波样式 */
+        .circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            transition-duration: 0.5s;
         }
     </style>
 </head>
-<link rel="stylesheet" href="GT.css">
-
 <body>
-    <div>
-        <div align="center">
-            <img border="0" src="images/gtlogo.jpg" alt="Pulpit rock" width="522">
+    <script>
+        /* 获取屏幕宽高 */
+        let screenWidth = window.innerWidth;
+        let screenHeight = window.innerHeight;
 
-            <h1>GT-league</h1>
+        /* 创建星星 */
+        for (let i = 0; i < 200; i++) {
+            let star = document.createElement("div");
+            star.classList.add("star");
+            star.style.top = Math.random() * screenHeight + "px";
+            star.style.left = Math.random() * screenWidth + "px";
+            star.style.animationDelay = Math.random() + "s";
+            document.body.appendChild(star);
+        }
 
+        /* 监听鼠标移动事件，让星星跟随鼠标移动 */
+        document.addEventListener("mousemove", function(event) {
+            screenWidth = window.innerWidth;
+            screenHeight = window.innerHeight;
 
-            <a href="main.html">
-                <button class="button button2">进入官网</button>
-            </a>
+            const mouseX = event.clientX / screenWidth;
+            const mouseY = event.clientY / screenHeight;
 
+            const stars = document.querySelectorAll(".star");
 
+            stars.forEach(function(star) {
+                const starX = parseFloat(star.style.left) / screenWidth;
+                const starY = parseFloat(star.style.top) / screenHeight;
 
+                const dx = mouseX - starX;
+                const dy = mouseY - starY;
+
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                const maxDistance = 0.15;
+                if (distance < maxDistance) {
+                    const moveX = dx / distance * (1 - distance / maxDistance) * maxDistance * 200;
+                    const moveY = dy / distance * (1 - distance / maxDistance) * maxDistance * 200;
+
+                    star.style.transform = "translate(" + moveX + "px," + moveY + "px)";
+                } else {
+                    star.style.transform = "translate(0, 0)";
+                }
+            });
+        });
+
+        /* 监听鼠标点击事件，添加水波 */
+        document.addEventListener("click", function(event) {
+            const circle = document.createElement("div");
+            circle.classList.add("circle");
+            circle.style.top = event.clientY - 50 + "px";
+            circle.style.left = event.clientX - 50 + "px";
+            document.body.appendChild(circle);
+
+            setTimeout(function() {
+                circle.style.opacity = "1";
+                circle.style.transform = "scale(1)";
+            }, 0);
+
+            setTimeout(function() {
+                circle.style.opacity = "0";
+                circle.style.transform = "scale(2)";
+            }, 500);
+        });
+
+        /* 监听屏幕尺寸变化，重新设置星星的位置 */
+        window.addEventListener("resize", function() {
+            screenWidth = window.innerWidth;
+            screenHeight = window.innerHeight;
+
+            const stars = document.querySelectorAll(".star");
+
+            stars.forEach(function(star) {
+                star.style.top = Math.random() * screenHeight + "px";
+                star.style.left = Math.random() * screenWidth + "px";
+            });
+        });
+    </script>
+    <p class="navbar-brand" id="htmer_time" style="color:#ffffff;font-size:20px;">
+        <script type="text/javascript" src="assets/js/time.js"></script>
+    <div class="container">
+        <img class="image"  src="images/gtlogo.jpg">
+        <a href="main.html" class="button">进入GT</a>
+    </div>
 </body>
-
 </html>
