@@ -1,104 +1,97 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>GT简易网页靓照查看</title>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>GT网页靓照查看器</title>
     <style>
-        body {
-            background-color: #242424;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        h1 {
-            color: white;
-            text-align: center;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid gray;
-        }
-
-        input[type="range"] {
-            width: 50%;
-            margin: 2em 0;
-            -webkit-appearance: none;
-            background-color: #cacaca;
-            height: 10px;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 15px;
-            height: 15px;
-            background-color: rgb(0, 191, 255);
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        input[type="number"] {
-            padding: 0.5em;
-            margin: 0.5em;
-            width: 50%;
-            text-align: center;
-            border: none;
-            border-radius: 4px;
-            background-color: #333;
-            color: white;
-        }
-
-        button {
-            padding: 0.5em;
-            margin: 0.5em;
-            border: none;
-            border-radius: 4px;
-            background-color: #00bfff;
-            color: white;
-            cursor: pointer;
-        }
+      body {
+        background-color: #222;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        box-sizing: border-box;
+        padding: 20px;
+      }
+      .image {
+        border: 2px solid #fff;
+        box-sizing: border-box;
+        width: 90%;
+        max-width: 500px;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      .input {
+        width: 90%;
+        max-width: 500px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #444;
+        color: #fff;
+        text-align: center;
+      }
+      .button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #00bfff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+      .slider {
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 20px;
+      }
+      .slider::-webkit-slider-thumb,
+      .slider::-moz-range-thumb,
+      .slider::-ms-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background-color: #00bfff;
+        border-radius: 50%;
+        cursor: pointer;
+      }
     </style>
-</head>
-
-<body>
+  </head>
+  <body>
     <div class="container">
-        <img id="image" src="https://gt-league.github.io/images/gtlogo.jpg" alt="GT League Logo">
-        <input id="range" type="range" min="1" max="10" value="5">
-        <input id="number" type="number" min="1" placeholder="输入大于0的整数">
-        <button id="btn" type="button">Go</button>
+      <img class="image" src="https://gt-league.github.io/images/gtlogo.jpg">
+      <input class="input" type="number" min="1" placeholder="输入正整数">
+      <button class="button">GO</button>
+      <input class="slider" type="range">
     </div>
     <script>
-        const imgURL = 'https://gt-league.github.io/images/gt'; // 图片地址前缀
+      var image = document.querySelector('.image');
+      var input = document.querySelector('.input');
+      var button = document.querySelector('.button');
+      var slider = document.querySelector('.slider');
 
-        // 获取页面元素
-        const img = document.querySelector('#image');
-        const range = document.querySelector('#range');
-        const number = document.querySelector('#number');
-        const btn = document.querySelector('#btn');
+      button.addEventListener('click', function() {
+        var num = input.value;
+        image.src = 'https://gt-league.github.io/images/gt' + num + '.jpg';
+      });
 
-        // 滑块条改变事件
-        range.addEventListener('input', () => {
-            img.style.width = `${range.value * 10}%`;
-        });
-
-        // 按钮点击事件
-        btn.addEventListener('click', () => {
-            const num = parseInt(number.value);
-            if (num >= 1) {
-                img.src = `${imgURL}${num}.jpg`;
-            } else {
-                alert('请输入大于0的整数！');
-            }
-        });
+      slider.addEventListener('input', function() {
+        var size = this.value + '%';
+        image.style.width = size;
+      });
     </script>
-</body>
-
+  </body>
 </html>
