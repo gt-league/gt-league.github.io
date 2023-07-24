@@ -1,0 +1,419 @@
+﻿body
+{
+    font-family: Microsoft Yahei;
+    margin: 0px;
+    background: #eeeeee;
+}
+ul, li
+{
+    margin: 0px;
+    padding: 0px;
+}
+li
+{
+    list-style: none;
+}
+
+.bg
+{
+    width: 100%;
+    height: 300px;
+    margin-top: 5%;
+    background: #6699cc;
+}
+
+/*登录页面*/
+#log_left
+{
+    float: left;
+    width: 60%;
+    text-align: right;
+    font-family: Microsoft Yahei;
+    font-size: 20px;
+    font-weight: bold;
+    color: White;
+    margin-top: 60px;
+    letter-spacing:6px;
+}
+
+#log_middle
+{
+    float: left;
+    width: 2px;
+    background-color: #cccccc;
+    height: 260px;
+    margin-left: 2%;
+    margin-top: 20px;
+}
+
+#log_right
+{
+    float: right;
+width: 35%;
+  margin-top: 23px;
+    font-family: Microsoft Yahei;
+    font-size: 16px;
+    color: White;
+
+    line-height: 2.5em;
+	letter-spacing:3px;
+text-align:left;
+
+}
+#log_right_content
+{
+width: 85%;
+margin-top: 23px;
+font-family: Microsoft Yahei;
+font-size: 16px;
+color: White;
+line-height: 2.5em;
+letter-spacing:3px;
+text-align:right;
+}
+
+
+
+.loginInput
+{
+    font-family: Microsoft Yahei;
+    font-size: 14px;
+    width: 200px;
+    height: 22px;
+    border: 1px solid #ccc;
+}
+
+.loginInput1
+{
+    font-family: Microsoft Yahei;
+    font-size: 15px;
+    width: 200px;
+    height: 26px;
+    border: 1px solid #ccc;
+    letter-spacing:3px;
+    cursor:pointer;
+    font-weight:bold;
+    color:#333;
+
+}
+
+.footer
+{
+    color: #555555;
+    background: #eeeeee;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 2%;
+	letter-spacing:2px;
+}
+
+/*结果显示页面*/
+.co
+{
+    height:auto; 
+	margin-top:10px;
+}
+.con
+{
+    width: 80%;
+    margin-left: 9%;
+    margin-right: 9%;
+    min-width: 335px;
+    float: left;
+}
+.con1
+{
+    width: 80%;
+    margin-left: 9%;
+    margin-right: 9%;
+    min-width: 335px;
+    float: left;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.line1
+{
+	height:3px; 
+	background-color:#6699cc;
+}
+.line2
+{
+	height:3px; 
+	background-color:#0080FF;
+}
+.title2
+{
+    font-family: Microsoft Yahei;
+    padding-top: 5PX;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #6699cc;
+    color: White;
+	letter-spacing:2px;
+}
+.title3
+{
+    font-family: Microsoft Yahei;
+    font-size: 15px;
+    font-weight: bold;
+    background-color:#0080FF ;
+    color: White;
+	letter-spacing:2px;
+padding-top: 5PX;
+}
+.title4
+{
+    font-size:20px; 
+	font-weight:bold; 
+	margin-top:5px; 
+	text-align:center;
+	letter-spacing:5px;
+}
+
+.block
+{
+    float: left;
+    width: 195px;
+    border: 1px solid #6699cc;
+    margin-top: 5px;
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+}
+.blo_top
+{
+    color: #444;
+    height: 35px;
+    background-color: #deede6;
+    border-bottom: 1px dashed #bbbbbb;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 2.5em;
+letter-spacing:2px;
+}
+.blo_bottom
+{
+    height: 50px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 3em;
+    word-break: break-all;
+    padding: 10PX;
+    line-height: 22px;
+letter-spacing:2px;
+}
+
+/*Index页面*/
+
+/*header部分*/
+#header_right
+{
+    float: right;
+    width: 400px;
+    font-size: 18px;
+    margin-top: 35px;
+    text-align: right;
+}
+/*链接颜色*/
+a:link
+{
+    color: #333;
+    text-decoration: none;
+}
+a:visited
+{
+    color: #666;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #3366FF;
+    text-decoration: none;
+}
+.clear
+{
+    clear: both;
+}
+/*顶部导航*/
+
+#top_nav
+{
+    clear: both;
+    height: 42px;
+    line-height: 26px;
+    padding: 8px 2% 6px;
+    background: url(img/nav_bg2.png) !important;
+    text-align: center;
+    font-size: 18px;
+    margin: 0 -2%;
+}
+#nav
+{
+    clear: both;
+    height: 34px;
+    padding: 8px 0px 4px;
+    overflow: Hidden;
+}
+#menu
+{
+    float: left;
+    width: 780px;
+}
+#menu li
+{
+    float: left;
+    float: left;
+    width: 100px;
+    padding: 0px 6px 0px 3px;
+    background: url(img/nav_line.gif) right top no-repeat;
+}
+#menu li a
+{
+    display: block;
+    width: 100px;
+    text-align: center;
+    height: 36px;
+    line-height: 26px;
+    text-decoration: none;
+    position: relative;
+    z-index: 99;
+}
+#menu li a:hover, #nav ul li a.on, #menu li a.hover
+{
+    background: url(img/nav_a_hover.png) center top no-repeat;
+    color: white;
+}
+#menu .subMenu
+{
+    position: absolute;
+    display: none;
+    height: 35px;
+    z-index: 80;
+    overflow: hidden;
+}
+#menu .subMenu .menuleft, #menu .subMenu .menuright
+{
+    background: url(img/nav_li_ul_bg.png);
+    display: block;
+    height: 30px;
+    float: left;
+    line-height: 30px;
+    position: relative;
+    z-index: 90;
+}
+#menu .subMenu .menuleft
+{
+    background-position: left top;
+    width: 10px;
+}
+#menu .subMenu .menuright
+{
+    background-position: right top;
+    padding-right: 10px;
+}
+#menu .subMenu .menuright a
+{
+    float: left;
+    height: 30px;
+    padding: 0;
+    width: 100px;
+    position: relative;
+    z-index: 99;
+}
+#menu .subMenu .menuright a:hover
+{
+    background: none;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+#menu .t5, #menu .t6
+{
+    position: absolute;
+}
+
+/*主要内容*/
+#content
+{
+    float: left;
+    width: 100%;
+    min-width: 750px;
+    margin-top: 3px;
+}
+#con_left
+{
+    width: 33%;
+    float: left;
+    min-width: 100px;
+}
+#con_right
+{
+    width: 65%;
+    float: right;
+    min-width: 500px;
+}
+#c_l_top
+{
+    font-size: 20px;
+    font-weight: bold;
+    color: White;
+    text-align: center;
+    background-color: #6699cc;
+    width: 100%;
+}
+#c_l_bottom
+{
+    border: 1px solid #6699cc;
+    padding: 5px;
+}
+#c_r_top
+{
+    float: left;
+    width: 100%;
+    border: 0;
+    border-bottom: 3px solid #6699cc;
+}
+#c_r_bottom
+{
+    float: left;
+    width: 99%;
+    background-color: White;
+    padding: 5px;
+}
+#index_footer
+{
+    margin-top: 10;
+    float: left;
+    width: 100%;
+    text-align: left;
+    padding-left: 5px;
+    padding-top: 10px;
+    color: #666;
+}
+#more
+{
+    float: right;
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.code
+{
+    background-image: url(code.jpg);
+    font-family: Arial;
+    font-style: italic;
+    color: Red;
+    border: 0;
+    padding: 2px 3px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    width: 250px;
+    height: 25px;
+    border: 1px solid #ccc;
+}
+.unchanged
+{
+    border: 0;
+}
