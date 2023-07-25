@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>free</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select,
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 20px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #333;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"> <label for="selectbox">选择接口：</label> <select id="selectbox" name="selectbox">
+            <option value="https://jx.bozrc.com:4433/player/?url=
+            ">1号</option>
+            <option value="https://www.wannengjiexi.com/jiexi1/?url=
+            ">2号</option>
+            <option value="https://jx.iztyy.com/svip/?url=
+            ">3号</option>
+            <option value="https://jx.xmflv.com/?url=
+            ">4号</option>
+        </select> <label for="inputbox">输入视频链接：</label> <input type="text" id="inputbox" name="inputbox" /> <button
+            onclick="openNewPage()">GO</button> </div>
+    <script> function openNewPage() { var select = document.getElementById("selectbox"); var input = document.getElementById("inputbox"); var value = select.options[select.selectedIndex].value; var url = value + encodeURIComponent(input.value); window.open(url, "_blank"); } </script>
+</body>
+
+</html>
