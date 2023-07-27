@@ -1,127 +1,106 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0049)file:///C:/Users/Administrator/Desktop/Login.html -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
-    <title>Õã½­Ê¡ÕĞÉú¿¼ÊÔĞÅÏ¢¹ÜÀíÏµÍ³</title>    
-     
-      <!-- HTTP 1.1 -->  
-<meta http-equiv="pragma" content="no-cache">  
-<!-- HTTP 1.0 -->  
-<meta http-equiv="cache-control" content="no-cache">  
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>æµ™æ±Ÿçœæ‹›ç”Ÿè€ƒè¯•ä¿¡æ¯ç®¡ç†ç³»ç»Ÿ</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
     <link href="./Login_files/login.css" rel="stylesheet">
-     <script type="text/javascript" src="file:///C:/Users/Administrator/Desktop/%E6%B5%99%E6%B1%9F%E7%9C%81%E6%8B%9B%E7%94%9F%E8%80%83%E8%AF%95%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F_files/Code.js"></script>
     <script type="text/javascript" src="./Login_files/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="./Login_files/jiami.js"></script>
-    <script type="text/javascript">
-        $(function () {
-
-            $("input[id='isadmin']").click(function () {
-                var vstr = $("input[id='isadmin']:checked").val();
-                if (vstr == "" || vstr == undefined) {
-                    $("#sfzlbl").html("Éí·İÖ¤£º");
-                } else {
-                    $("#sfzlbl").html("ÓÃ»§Ãû£º");
-                }
-            });
+    <script type="text/javascript" src="./Login_files/Code.js"></script>
+    <script type="text/javascript"> $(function () {
+            $("input[id='isadmin']").click(function () { var vstr = $("input[id='isadmin']:checked").val(); if (vstr == "" || vstr == undefined) { $("#sfzlbl").html("èº«ä»½è¯ï¼š"); } else { $("#sfzlbl").html("ç”¨æˆ·åï¼š"); } });
 
             $.post("ashx/loginHandler.ashx", { title: "checkurl" }, function (data) {
-
                 if (data != "success") {
-
-                    art.dialog({
-                        lock: true,
-                        background: '#fff', // ±³¾°É«
-                        opacity: 1, // Í¸Ã÷¶È
-                        content: 'Çë´Ó¿¼ÊÔÔº¹ÙÍø½øÈëÖ¾Ô¸Ìî±¨ÏµÍ³!',
-                        icon: 'error',
-                        cancel: false
-
-
-                    });
+                    alert('è¯·ä»è€ƒè¯•é™¢å®˜ç½‘è¿›å…¥å¿—æ„¿å¡«æŠ¥ç³»ç»Ÿ!');
+                    window.location.href = "https://www.zjzs.net/";
                 }
-
             }, 'text');
-
 
             $.post("ashx/loginHandler.ashx", { title: "getbasedata" }, function (data) {
-
                 if (data != "0") {
-
                     window.location.href = "logout.aspx";
                 }
-
             }, 'text');
-
         });
+
         function tijiao() {
-            //vaildate
             var shenfenzheng = $("#shenfenzheng").val();
-            if (shenfenzheng == "") { alert("Éí·İÖ¤²»ÄÜÎª¿Õ£¡"); return false; }
-            var mima = $("#mima").val(); if (mima == "") { alert("ÃÜÂë²»ÄÜÎª¿Õ£¡"); return false; }
-            var yzm; yzm = $("#yzm").val(); if (yzm == "") { alert("ÑéÖ¤Âë²»ÄÜÎª¿Õ"); return false; }
+            if (shenfenzheng == "") { alert("èº«ä»½è¯ä¸èƒ½ä¸ºç©ºï¼"); return false; }
+            var mima = $("#mima").val(); if (mima == "") { alert("å¯†ç ä¸èƒ½ä¸ºç©ºï¼"); return false; }
+            var yzm; yzm = $("#yzm").val(); if (yzm == "") { alert("éªŒè¯ç ä¸èƒ½ä¸ºç©º"); return false; }
             var mima_jiami = jiami(mima);
-            //ajax
             var isadmin = $("#isadmin").attr("checked");
             if (isadmin == "checked") { isadmin = true; }
-
             $.post("ashx/loginHandler.ashx", { title: "login", shenfenzheng: shenfenzheng, mima: mima_jiami, yzm: yzm, isadmin: isadmin }, function (data) {
-
                 if (data.status == "success") {
-
                     window.location.href = data.url;
                 } else {
                     $("#imgVerify").attr('src', $("#imgVerify").attr('src') + '?');
                     alert(data.des);
                 }
-
             }, 'json');
-
-        }
-        
+        }    
     </script>
 </head>
-<body>
 
+<body>
     <div class="bg">
-        <div id="log_left">
-        Õã½­Ê¡¸ßĞ£ÕĞÉú¿¼ÊÔĞÅÏ¢¹ÜÀíÏµÍ³<br>
-        <p style=" text-align:right;"><a target="_blank" style=" font-size:18px;  color:Red;  font-family:NSimSun; margin-left:10px;" href="https://pgzy.zjzs.net:4431/shuoming.doc">²é¿´Ê¹ÓÃËµÃ÷</a><br>
-     <a target="_blank" style=" font-size:18px;  color:Red;  font-family:NSimSun; margin-left:10px;" href="https://www.zjzs.net/moban/index/8a11f15383d0742c0183d0bd2f990001.html">Õã½­Ê¡½ÌÓı¿¼ÊÔÔº¹ØÓÚ×öºÃ2023ÄêÆÕÍ¨¸ßĞ£ÕĞÉú¿¼ÊÔ±¨Ãû¹¤×÷µÄÍ¨Öª</a><br>
-           
-<a target="_blank" style=" font-size:18px;  color:Red;  font-family:NSimSun; margin-left:10px;" href="https://www.zjzs.net/moban/index/8a11f15487251ae60187264087d50001.html">Õã½­Ê¡½ÌÓı¿¼ÊÔÔº¹ØÓÚ×öºÃ2023Äê6ÔÂ¸ß¿¼ÍâÓï¡¢Ñ¡¿¼ĞÅÏ¢È·ÈÏ¹¤×÷µÄÍ¨Öª</a><br>
-         <a target="_blank" style=" font-size:18px;  color:Red;  font-family:NSimSun; margin-left:10px;" href="https://www.zjzs.net/moban/index/8a11f1558731ed5201873204ebca000a.html">Õã½­Ê¡½ÌÓı¿¼ÊÔÔº¹ØÓÚ×öºÃ2023Äê7ÔÂÆÕÍ¨¸ßÖĞÑ§ÒµË®Æ½¿¼ÊÔ±¨Ãû¹¤×÷µÄÍ¨Öª</a><br>
-        
-</p>
+        <div id="log_left"> æµ™æ±Ÿçœé«˜æ ¡æ‹›ç”Ÿè€ƒè¯•ä¿¡æ¯ç®¡ç†ç³»ç»Ÿ<br>
+            <p style=" text-align:right;"> <a target="_blank"
+                    style=" font-size:18px; color:Red; font-family:NSimSun; margin-left:10px;"
+                    href="https://pgzy.zjzs.net:4431/shuoming.doc">æŸ¥çœ‹ä½¿ç”¨è¯´æ˜</a><br> <a target="_blank"
+                    style=" font-size:18px; color:Red; font-family:NSimSun; margin-left:10px;"
+                    href="https://www.zjzs.net/moban/index/8a11f15383d0742c0183d0bd2f990001.html">æµ™æ±Ÿçœæ•™è‚²è€ƒè¯•é™¢å…³äºåšå¥½2023å¹´æ™®é€šé«˜æ ¡æ‹›ç”Ÿè€ƒè¯•æŠ¥åå·¥ä½œçš„é€šçŸ¥</a><br>
+                <a target="_blank" style=" font-size:18px; color:Red; font-family:NSimSun; margin-left:10px;"
+                    href="https://www.zjzs.net/moban/index/8a11f15487251ae60187264087d50001.html">æµ™æ±Ÿçœæ•™è‚²è€ƒè¯•é™¢å…³äºåšå¥½2023å¹´6æœˆé«˜è€ƒå¤–è¯­ã€é€‰è€ƒä¿¡æ¯ç¡®è®¤å·¥ä½œçš„é€šçŸ¥</a><br>
+                <a target="_blank" style=" font-size:18px; color:Red; font-family:NSimSun; margin-left:10px;"
+                    href="https://www.zjzs.net/moban/index/8a11f1558731ed5201873204ebca000a.html">æµ™æ±Ÿçœæ•™è‚²è€ƒè¯•é™¢å…³äºåšå¥½2023å¹´7æœˆæ™®é€šé«˜ä¸­å­¦ä¸šæ°´å¹³è€ƒè¯•æŠ¥åå·¥ä½œçš„é€šçŸ¥</a><br>
+            </p>
         </div>
         <div id="log_middle"></div>
-        <div id="log_right"><table class="logintb">
-            <tbody><tr><td class="loginleft">
-           <label id="sfzlbl">Ö¤¼şºÅ£º</label></td><td class="loginright"><input id="shenfenzheng" name="shenfenzheng" class="loginInput" value="">
-            </td>
-            </tr>
-            <tr><td class="loginleft">
-           <label> ÃÜ&nbsp;&nbsp;&nbsp;Âë£º</label></td><td class="loginright"><input id="mima" name="mima" type="password" class="loginInput" value=""><br>
-            </td>
-            </tr>
-            <tr><td class="loginleft">
-            <label>ÑéÖ¤Âë£º</label></td><td><input id="yzm" name="yzm" class="loginInput" style="width: 150px; float: left; border-color: rgb(153, 153, 153);" type="text" onfocus="this.style.borderColor=&#39;#3366ff&#39;" onblur="this.style.borderColor=&#39;#999&#39;">
-          <img id="imgVerify" src="./Login_files/VerifyCode.aspx" style="margin-left:10px; float:left" alt="¿´²»Çå£¿µã»÷¸ü»»" onclick=" this.src = this.src + &#39;?&#39;; ">
-          </td></tr> <tr><td class="loginleft">
-            <label>¹ÜÀíÔ±£º</label></td><td><input type="checkbox" id="isadmin">ÊÇ</td></tr>
-            
-            <tr><td class="loginleft"></td><td class="loginright"> 
-                <input id="Button1" class="loginInput1" type="button" value="µÇÂ¼" onclick="window.location.href=&#39;./get.html&#39;" style="font-weight: bold; cursor:pointer; color:#333;"><span></span></td></tr>
-            </tbody></table>
+        <div id="log_right">
+            <table class="logintb">
+                <tbody>
+                    <tr>
+                        <td class="loginleft"> <label id="sfzlbl">è¯ä»¶å·ï¼š</label> </td>
+                        <td class="loginright"> <input id="shenfenzheng" name="shenfenzheng" class="loginInput"
+                                value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="loginleft"> <label> å¯† ç ï¼š</label> </td>
+                        <td class="loginright"> <input id="mima" name="mima" type="password" class="loginInput"
+                                value=""><br> </td>
+                    </tr>
+                    <tr>
+                        <td class="loginleft"> <label>éªŒè¯ç ï¼š</label> </td>
+                        <td> <input id="yzm" name="yzm" class="loginInput"
+                                style="width: 150px; float: left; border-color: rgb(153, 153, 153);" type="text"
+                                onfocus="this.style.borderColor='#3366ff'" onblur="this.style.borderColor='#999'"> <img
+                                id="imgVerify" src="./Login_files/VerifyCode.aspx" style="margin-left:10px; float:left"
+                                alt="çœ‹ä¸æ¸…ï¼Ÿç‚¹å‡»æ›´æ¢" onclick=" this.src = this.src + '?'; "> </td>
+                    </tr>
+                    <tr>
+                        <td class="loginleft"> <label>ç®¡ç†å‘˜ï¼š</label> </td>
+                        <td> <input type="checkbox" id="isadmin">æ˜¯ </td>
+                    </tr>
+                    <tr>
+                        <td class="loginleft"></td>
+                        <td class="loginright"> <input id="Button1" class="loginInput1" type="button" value="ç™»å½•"
+                                onclick="window.location.href='./get.html'" style="font-weight: bold; cursor:pointer; color:#333;">
+                            <span></span> </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-    </div> 
+    </div>
     <div style=" text-align:center; color:Red;font-size:18px;"><br>
+        è¯´æ˜ï¼šè€ƒç”Ÿå‚åŠ è€ƒè¯•æŠ¥åæ—¶è¯·å…ˆä»¥æœ‰æ•ˆè¯ä»¶æ³¨å†Œè´¦å·ï¼Œè¯¥è´¦å·åœ¨æœ¬ç³»ç»Ÿæ‰€æœ‰è€ƒè¯•é¡¹ç›®é€šç”¨ï¼Œä¸éœ€é‡å¤æ³¨å†Œã€‚<br><br> æ³¨æ„ï¼šè¯·ä½¿ç”¨360å®‰å…¨æµè§ˆå™¨ï¼ˆå…¼å®¹æ¨¡å¼ï¼‰ã€Google Chromeã€Mozilla
+        Firefoxã€IE8.0åŠä»¥ä¸Šç‰ˆæœ¬æµè§ˆå™¨ï¼Œä¸è¦ä½¿ç”¨æ‰‹æœºå’Œå¹³æ¿ç”µè„‘ã€‚ </div>
+    <div class="footer">ç‰ˆæƒæ‰€æœ‰ï¼šæµ™æ±Ÿçœæ•™è‚²è€ƒè¯•é™¢</div>
+</body>
 
-        ËµÃ÷£º¿¼Éú²Î¼Ó¿¼ÊÔ±¨ÃûÊ±ÇëÏÈÒÔÓĞĞ§Ö¤¼ş×¢²áÕËºÅ£¬¸ÃÕËºÅÔÚ±¾ÏµÍ³ËùÓĞ¿¼ÊÔÏîÄ¿Í¨ÓÃ£¬²»ĞèÖØ¸´×¢²á¡£<br><br>
-
-×¢Òâ£ºÇëÊ¹ÓÃ360°²È«ä¯ÀÀÆ÷£¨¼æÈİÄ£Ê½£©¡¢Google Chrome¡¢Mozilla Firefox¡¢IE8.0¼°ÒÔÉÏ°æ±¾ä¯ÀÀÆ÷£¬²»ÒªÊ¹ÓÃÊÖ»úºÍÆ½°åµçÄÔ¡£
-        </div>
-    <div class="footer">°æÈ¨ËùÓĞ£ºÕã½­Ê¡½ÌÓı¿¼ÊÔÔº</div>
-
-
-
-</body></html>
+</html>
