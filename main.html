@@ -46,9 +46,18 @@
 		<div id="main">
 
 			<!-- Intro -->
+			<audio id="audio1"> <!--音效文件路径-->
+				<source src="怪.mp3">
+			</audio>
+			<script>
+				function playAudio1() {
+					var audio = document.getElementById("audio1");
+					audio.play(); /*点击图片播放音效*/
+				}
+			</script>
 			<article id="intro">
 				<h2 class="major">GT联盟</h2>
-				<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+				<span class="image main"><img src="images/pic01.jpg"onclick="playAudio1()" alt="" /></span>
 				<p>GT联盟代表“共同成长”(growing together)，旨在让成员们一起成长和发展，一起分享和学习。它是一种组织形式，旨在为成员们提供互相鼓励、支持和帮助的平台，让他们可以在一个更加积极和温馨的环境中成长和发展。GT联盟的目标是让每个成员都能够找到自己的方向和能力，成为一个有价值和有意义的人。在GT联盟的过程中，成员们也可以通过分享和学习，增加他们的知识和技能，不断提高自己的水平。<br> "射穿黑暗，熄灭太阳"<br>在董事长gtboy的带领下我们实现了从0到13的伟大飞跃...
 				</p>
 				<p>GT的成立是人类发展的进步,它将推动社会的发展，造福于人类...</p>
@@ -63,10 +72,19 @@
 			</article>
 
 			<!-- About -->
+			<audio id="audio2"> <!--音效文件路径-->
+				<source src="脑瘫.mp3">
+			</audio>
+			<script>
+				function playAudio2() {
+					var audio = document.getElementById("audio2");
+					audio.play(); /*点击图片播放音效*/
+				}
+			</script>
 			<article id="about">
 				<h2 class="major">About</h2>
-				<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-				<p>GT联盟成立于2023年6月3日,在董事长的带领下已经有13名成员,在高一(12)班已经小有名气了</p>
+				<span class="image main"><img src="images/pic03.jpg"onclick="playAudio2()" alt="" /></span>
+				<p>GT联盟成立于2023年6月3日,在董事长的带领下已经有13名成员,在高一(12)班已经小有名气了，Tips:<a href="update.html">下载GT.exe🔗</a></p>
 			</article>
 
 			<!-- Contact -->
