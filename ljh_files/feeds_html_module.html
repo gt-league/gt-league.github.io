@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/Administrator/Desktop/666_files/feeds_html_module.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>个人中心feeds</title>
+<!--<base href="//qzs.qq.com/">--><!--<base href=".">--><!--<base href=".">--><base href=".">
+<script>
+  document.domain=location.hostname;
+</script>
+<!--[if IE]>
+<script type="text/javascript">
+    function toAbsURL(s) { 
+     var l = location, h, p, f, i; 
+     if (/^\w+:/.test(s)) { 
+       return s; 
+     } 
+     h = l.protocol + '//' + l.host + (l.port!=''?(':' + l.port):''); 
+     if (s.indexOf('/') == 0) { 
+       return h + s; 
+     } 
+     p = l.pathname.replace(/\/[^\/]*$/, ''); 
+     f = s.match(/\.\.\//g); 
+     if (f) { 
+       s = s.substring(f.length * 3); 
+       for (i = f.length; i--;) { 
+         p = p.substring(0, p.lastIndexOf('/')); 
+       } 
+     } 
+     return h + p + '/' + s; 
+   }
+
+
+    var base = document.getElementsByTagName('base')[0];
+    base.href = toAbsURL(base.href);
+</script>
+<![endif]-->
+<script type="text/javascript">
+var QZONE = {};
+var QZFL = {};
+QZFL.event = {};
+QZFL.event.getEvent = function (evt) {
+	var evt = window.event || evt,
+		c, cnt;
+	if (!evt && window.Event) {
+		c = arguments.callee;
+		cnt = 0;
+		while (c) {
+			if ((evt = c.arguments[0]) && typeof (evt.srcElement) != "undefined") {
+				break;
+			} else if (cnt > 9) {
+				break;
+			}
+			c = c.caller;
+			++cnt;
+		}
+	}
+	return evt;
+};
+QZFL.event.getTarget = function (evt) {
+	var e = QZFL.event.getEvent(evt);
+	if (e) {
+		return e.srcElement || e.target;
+	} else {
+		return null;
+	}
+};
+QZFL.media = {};
+var QZFF_M_img_ribr = [];
+QZFL.media.reduceImgByRule = function (ew, eh, opts, cb) {
+	QZFF_M_img_ribr.push(QZFL.event.getTarget());
+};
+QZFL.media.adjustImageSize = function (w, h, trueSrc, cb, errCallback) {
+	QZFF_M_img_ribr.push(QZFL.event.getTarget());
+};
+QZFL.media.reduceImage = function () {
+	QZFF_M_img_ribr.push(QZFL.event.getTarget());
+};
+QZFL.media.smartImage = function () {
+	QZFF_M_img_ribr.push(QZFL.event.getTarget());
+};
+
+function restXHTML(s) {
+	return s.replace(/&amp;|&lt;|&gt;|&apos;|&#0?39;|&quot;/g, function (a) {
+		switch (a) {
+		case "&amp;":
+			return "&";
+		case "&lt;":
+			return "<";
+		case "&gt;":
+			return ">";
+		case "&apos;":
+		case "&#39;":
+		case "&#039;":
+			return "\x27";
+		case "&quot;":
+			return "\x22";
+		}
+	});
+}
+</script>
+<script type="text/javascript">
+	var _s_=new Date();
+	var _re = document.referrer,
+		exp = /^https?:\/\/(([\d\w-]+)(?:\.s\d\d?)?\.)?([\d\w-]+)(?:\.s\d\d?)?\.(qzone|pengyou)\.qq\.com/i,
+		exp2 =  /^https?:\/\/([a-zA-Z0-9\-]+)?\.?(qzs|imgcache)\.qq\.com[\/]*#?/i;
+
+	var G_Param,
+		g_sid,
+		g_imgd,
+		g_wd,
+		g_rd,
+		g_V;
+	if(exp.test(_re)||exp2.test(_re)){
+		document.domain=location.hostname;
+		g_sid = parent.siDomain || parent.parent.siDomain || "qzonestyle.gtimg.cn";
+		g_sid = g_sid.replace("http://","").replace('https://', '');
+		g_imgd = parent.imgcacheDomain || parent.parent.siDomain || "imgcache.qq.com";
+
+		g_DPrefix = parent.g_DPrefix || parent.parent.g_DPrefix || "";
+		g_rd = "r."+g_DPrefix+"qzone.qq.com";
+		g_wd = "w."+g_DPrefix+"qzone.qq.com";
+		g_imgd = g_imgd.replace("http://","").replace('https://', '');
+		g_V = parent.g_V || parent.parent.g_V || {
+			"qz":"_2.0.7.8"
+		};
+	}else{
+		window.OUTSIDE_DOMAIN = true;
+		g_sid = "qzonestyle.gtimg.cn";
+		g_imgd = "imgcache.qq.com";
+		g_rd = "r.qzone.qq.com";
+		g_wd = "w.qzone.qq.com";
+		g_V = {
+			"qz":"_2.0.7.8"
+		};
+	}
+	if(!/\/$/.test(g_sid)){
+		g_sid+="/";
+	}
+	function commonDictionarySplit(s, esp, vq, eq) {
+			var res = {};
+			if(!s || typeof(s) != "string"){
+				return res;
+			}
+			if (typeof(esp) != 'string') {
+				esp = "&";
+			}
+			if (typeof(vq) != 'string') {
+				vq = "";
+			}
+			if (typeof(eq) != 'string') {
+				eq = "=";
+			}
+
+			var l = s.split(vq + esp),
+				len = l.length,
+				tmp,
+				t = eq + vq,
+				p;
+
+			if(vq){
+				tmp = l[len - 1].split(vq);
+				l[len - 1] = tmp.slice(0, tmp.length - 1).join(vq);
+			}
+
+			for (var i = 0, len; i < len; i++) {
+				if(eq){
+					tmp = l[i].split(t);
+					if (tmp.length > 1) {
+						res[tmp[0]] = tmp.slice(1).join(t);
+						continue;
+					}
+				}
+				res[l[i]] = true;
+			}
+			return res;
+		}
+
+		var _jsBegin='<script type="text/javascript" charset="utf-8" src="',
+			_jsEnd='"><\/script>',
+			cssBegin = '<link rel="stylesheet" rev="stylesheet" href="',
+			cssEnd = '" type="text/css" media="screen"/>';
+
+		G_Param = commonDictionarySplit(location.search.substring(1),"&");
+		if(!G_Param){
+			G_Param = frameElement.G_Param || {};
+		}
+		var G_Param_map = {
+			hideExtend: true,
+			style: 100,
+			DEFAULT_FEEDS_CGI: window.location.protocol+ "//rsh.qzone.qq.com/cgi-bin/feeds/feeds_html_act_all",
+			i_uin: window.OUTSIDE_DOMAIN?0:(parent.g_iUin||parent.parent.g_iUin||0),
+			i_login_uin: window.OUTSIDE_DOMAIN?0:(parent.g_iLoginUin||parent.parent.g_iLoginUin||0),
+			mode: 3,
+			noOpr: true,
+			view: 1,
+			scope: 0,
+			filter: "all",
+			max: -1,
+			heightHack: parseInt(G_Param.heightHack, 10),
+			errmsg: "主人最近比较忙，没有公开的空间更新。",
+			PV_ACT_DOMAIN: "ic2act",
+			PV_DOMAIN: "ic2",
+			showbbor:false,/*是否显示分割线条*/
+			showcount:10,/*每次显示条数*/
+			showmore:false,/*是否显示更多按钮*/
+			version:5/*v5还是v6,默认是v5*/
+		};
+
+var _feedsdata = {
+	"code" : '',
+	"subcode" : '',
+	"message" : '',
+	"default" : '',
+	"data":{
+		main : {
+			attach:'',
+			searchtype :'',
+			needFold:'',
+			icServerTime:'',
+			icView:'',
+			daylist:'',
+			uinlist:'',
+			hasMoreFeeds_0:false,
+			foldAllHostBTNClass:'',
+			foldAllHostBTNTitle:'',
+			foldAllHostFeedDisplay:'',
+			friend_more:'',
+			host_more:'',
+			aboutHostFeeds_new_cnt:'',
+			replyHostFeeds_new_cnt:'',
+			myFeeds_new_cnt:'',
+			friendFeeds_new_cnt:'',
+			newfeeds_uinlist:'',
+			newfeeds_uinlist_more:'',
+			newfeeds_special_cnt:'',
+			newfeeds_friend_cnt:'',
+			newfeeds_follow_cnt:'',
+			newfeeds_group_cnt:'',
+			tips:'',
+			feedstips:'',
+			js_showtips:'',
+			lastaccesstime:'',
+			lastAccessRelateTime:'',
+			QzoneFeedsKey:'',
+			offset:'10',
+			total_number:'6'
+		},
+		firstpage_data:[
+			
+			{
+				ver:'1',
+				appid:'311',
+				typeid:'0',
+				key:'895c25d4af73eb642b130e00',
+				flag:'0',
+				dataonly:'0',
+				feedno:'0',
+				title:'',
+				summary:'',
+				appiconid:'311',
+				clscFold:'icenter_list_extend',
+				abstime:'1693152173',
+				feedstime:'昨天 00:02',
+				userHome:'http://user.qzone.qq.com/3559218313',
+				namecardLink:'nameCard_3559218313',
+				ouin:'',
+				uin:'3559218313',
+				foldFeed:'',
+				foldFeedTitle:'',
+				showEbtn:'',
+				scope:'0',
+				hideExtend:'',
+				nickname:'董事长',
+				remark:'',
+				type:'',
+				vip:'vip_0',
+				info_user_name:'',
+				logimg:'http://qlogo2.store.qq.com/qzone/3559218313/3559218313/50?1693218176',
+				bor:'',
+				lastFeedBor:'',
+				list_bor2:'',
+				info_user_display:'',
+				upernum:'',
+				oprType:'0',
+				moreflag:'',
+				otherflag:'0_0_0_0_0_0_0',
+				sameuser:{},
+				uper_isfriend:[],
+				uperlist:[]
+		},
+		
+			{
+				ver:'1',
+				appid:'311',
+				typeid:'0',
+				key:'895c25d425a1ef6310020b00',
+				flag:'0',
+				dataonly:'0',
+				feedno:'1',
+				title:'',
+				summary:'',
+				appiconid:'311',
+				clscFold:'icenter_list_extend',
+				abstime:'1676648741',
+				feedstime:'2月17日 23:45',
+				userHome:'http://user.qzone.qq.com/3559218313',
+				namecardLink:'nameCard_3559218313',
+				ouin:'',
+				uin:'3559218313',
+				foldFeed:'',
+				foldFeedTitle:'',
+				showEbtn:'',
+				scope:'0',
+				hideExtend:'',
+				nickname:'董事长',
+				remark:'',
+				type:'',
+				vip:'vip_0',
+				info_user_name:'',
+				logimg:'http://qlogo2.store.qq.com/qzone/3559218313/3559218313/50?1693218176',
+				bor:'',
+				lastFeedBor:'',
+				list_bor2:'',
+				info_user_display:'',
+				upernum:'',
+				oprType:'0',
+				moreflag:'',
+				otherflag:'0_0_0_0_0_0_0',
+				sameuser:{},
+				uper_isfriend:[],
+				uperlist:[]
+		},
+		
+			{
+				ver:'1',
+				appid:'311',
+				typeid:'0',
+				key:'895c25d46f35e863d1f50b00',
+				flag:'0',
+				dataonly:'0',
+				feedno:'2',
+				title:'',
+				summary:'',
+				appiconid:'311',
+				clscFold:'icenter_list_extend',
+				abstime:'1676162415',
+				feedstime:'2月12日 08:40',
+				userHome:'http://user.qzone.qq.com/3559218313',
+				namecardLink:'nameCard_3559218313',
+				ouin:'',
+				uin:'3559218313',
+				foldFeed:'',
+				foldFeedTitle:'',
+				showEbtn:'',
+				scope:'0',
+				hideExtend:'',
+				nickname:'董事长',
+				remark:'',
+				type:'',
+				vip:'vip_0',
+				info_user_name:'',
+				logimg:'http://qlogo2.store.qq.com/qzone/3559218313/3559218313/50?1693218176',
+				bor:'',
+				lastFeedBor:'',
+				list_bor2:'',
+				info_user_display:'',
+				upernum:'',
+				oprType:'0',
+				moreflag:'',
+				otherflag:'0_0_0_0_0_0_0',
+				sameuser:{},
+				uper_isfriend:[],
+				uperlist:[]
+		},
+		
+			{
+				ver:'1',
+				appid:'311',
+				typeid:'0',
+				key:'895c25d443948d63b7590100',
+				flag:'0',
+				dataonly:'0',
+				feedno:'3',
+				title:'',
+				summary:'',
+				appiconid:'311',
+				clscFold:'icenter_list_extend',
+				abstime:'1670222914',
+				feedstime:'2022年12月5日 14:48',
+				userHome:'http://user.qzone.qq.com/3559218313',
+				namecardLink:'nameCard_3559218313',
+				ouin:'',
+				uin:'3559218313',
+				foldFeed:'',
+				foldFeedTitle:'',
+				showEbtn:'',
+				scope:'0',
+				hideExtend:'',
+				nickname:'董事长',
+				remark:'',
+				type:'',
+				vip:'vip_0',
+				info_user_name:'',
+				logimg:'http://qlogo2.store.qq.com/qzone/3559218313/3559218313/50?1693218176',
+				bor:'',
+				lastFeedBor:'',
+				list_bor2:'',
+				info_user_display:'',
+				upernum:'',
+				oprType:'0',
+				moreflag:'',
+				otherflag:'0_0_0_0_0_0_0',
+				sameuser:{},
+				uper_isfriend:[],
+				uperlist:[]
+		},
+		
+			{
+				ver:'1',
+				appid:'311',
+				typeid:'0',
+				key:'895c25d4165c146373ac0e00',
+				flag:'0',
+				dataonly:'0',
+				feedno:'4',
+				title:'',
+				summary:'',
+				appiconid:'311',
+				clscFold:'icenter_list_extend',
+				abstime:'1662278678',
+				feedstime:'2022年9月4日 16:04',
+				userHome:'http://user.qzone.qq.com/3559218313',
+				namecardLink:'nameCard_3559218313',
+				ouin:'',
+				uin:'3559218313',
+				foldFeed:'',
+				foldFeedTitle:'',
+				showEbtn:'',
+				scope:'0',
+				hideExtend:'',
+				nickname:'董事长',
+				remark:'',
+				type:'',
+				vip:'vip_0',
+				info_user_name:'',
+				logimg:'http://qlogo2.store.qq.com/qzone/3559218313/3559218313/50?1693218176',
+				bor:'',
+				lastFeedBor:'',
+				list_bor2:'',
+				info_user_display:'',
+				upernum:'',
+				oprType:'0',
+				moreflag:'',
+				otherflag:'0_0_0_0_0_0_0',
+				sameuser:{},
+				uper_isfriend:[],
+				uperlist:[]
+		},
+		
+			{
+				ver:'1',
+				appid:'333',
+				typeid:'1',
+				key:'3559218313_birthday_20180115',
+				flag:'0',
+				dataonly:'0',
+				feedno:'5',
+				title:'',
+				summary:'',
+				appiconid:'333',
+				clscFold:'icenter_list_extend',
+				abstime:'1515983588',
+				feedstime:'2018年1月15日 10:33',
+				userHome:'http://user.qzone.qq.com/3559218313',
+				namecardLink:'nameCard_3559218313',
+				ouin:'',
+				uin:'3559218313',
+				foldFeed:'',
+				foldFeedTitle:'',
+				showEbtn:'',
+				scope:'0',
+				hideExtend:'',
+				nickname:'董事长',
+				remark:'',
+				type:'',
+				vip:'vip_0',
+				info_user_name:'',
+				logimg:'http://qlogo2.store.qq.com/qzone/3559218313/3559218313/50?1693218176',
+				bor:'',
+				lastFeedBor:'',
+				list_bor2:'',
+				info_user_display:'',
+				upernum:'',
+				oprType:'0',
+				moreflag:'',
+				otherflag:'0_0_0_0_0_0_0',
+				sameuser:{},
+				uper_isfriend:[],
+				uperlist:[]
+		},
+		
+		undefined
+		]
+	}
+};
+
+for(var k in G_Param_map){
+	if(typeof(G_Param[k])=="undefined"){
+		G_Param[k] = G_Param_map[k];
+	}
+}
+if ((G_Param.style + "").indexOf("v6/") == 0){
+	G_Param.version = 6;
+	G_Param.style = (G_Param.style + "").replace("v6/", "");
+}
+if(G_Param.MORE_FEEDS_CGI){
+	G_Param.MORE_FEEDS_CGI = decodeURIComponent(G_Param.MORE_FEEDS_CGI);
+}
+
+/*这里特殊默认值的判断*/
+if(typeof(G_Param.hideExtend)=="string"){
+	G_Param.hideExtend = (G_Param.hideExtend != "false");
+}
+
+if(typeof(G_Param.mode)=="undefined"||isNaN(parseInt(G_Param.mode,10))){
+	G_Param.mode = 1;
+}
+
+if(typeof(G_Param.style)=="undefined"||isNaN(parseInt(G_Param.style,10))){
+	G_Param.style = 100;
+}else{
+	G_Param.style = parseInt(G_Param.style,10);
+}
+
+G_Param.CSSQueue = [];
+if(G_Param.version == 8){
+	G_Param.CSSQueue.push([
+		cssBegin,window.location.protocol , '//', g_sid,'aoi/skin/',G_Param.style, '.css" id="qz_skin_style', cssEnd
+	].join(""));
+} else if (G_Param.version == 6){
+	G_Param.CSSQueue.push(([cssBegin, window.location.protocol , '//', g_sid,'qzone_v6/gb/skin/',G_Param.style,'.css',cssEnd]).join(""));
+}
+
+if(typeof(G_Param.needDelOpr)=="string"){
+	G_Param.needDelOpr = (G_Param.needDelOpr != "false");
+}
+var tmp_begin = '<li class="f_single imgBlock bor2"><div class="f_aside imgBlock_img"><qz:user param=\'<%userHome%>|<%logimg%>|<%namecardLink%>|<%info_user_name%>||<%vip%>|<%type%>|<%uin%>|<%ouin%>|<%otherflag%>\' nick=\'<%nickname%>\'></qz:user></div><div class="f_wrap imgBlock_ct">',
+	tmp_end = '</div></li>',
+	host_tmp = '<div class="f_item" link="0" id="feed_<%uin%>_<%appid%>_<%typeid%>_<%abstime%>_<%feedno%>_<%scope%>_<%ver%>" ><div class="f_info"><a target="_blank" href="http://'+location.hostname+'/<%uin%>/profile" class="nickname q_namecard c_tx q_des ui_mr5" link="nameCard_<%uin%> des_<%uin%>"><%nickname%></a><%famouslogo%><%title%></div><div class="qz_summary" id="hex_<%appid%>_<%abstime%>_<%uin%>_<%scope%>"><%summary%></div><div class="f_op" id="opr_<%uin%>_<%appid%>_<%typeid%>_<%abstime%>_<%feedno%>"><qz:fo class="<%foldFeed%>" title="<%foldFeedTitle%>" param="<%appid%>|<%abstime%>|<%ouin%>|<%typeid%>|<%feedno%>|<%feedstime%>|<%showEbtn%>|<%scope%>|<%oprType%>|<%key%>|<%otherflag%>|<%rightflag%>|<%ver%>"></qz:fo></div></div>',
+	friend_tmp = '<div class="f_item" link="1" id="feed_<%uin%>_<%appid%>_<%typeid%>_<%abstime%>_<%feedno%>_<%scope%>_<%ver%>" ><div class="f_info"><a target="_blank" href="http://'+location.hostname+'/<%uin%>/profile" class="nickname q_namecard c_tx q_des ui_mr5" link="nameCard_<%uin%> des_<%uin%>"><%nickname%></a><%famouslogo%><%title%></div><div class="qz_summary" id="hex_<%appid%>_<%abstime%>_<%uin%>_<%scope%>"><%summary%></div><div class="f_op"  '+(G_Param.hideExtend?'style="display:none"':'')+' id="opr_<%uin%>_<%appid%>_<%typeid%>_<%abstime%>_<%feedno%>"><qz:fo class="<%foldFeed%>" title="<%foldFeedTitle%>" param="<%appid%>|<%abstime%>|<%uin%>|<%typeid%>|<%feedno%>|<%feedstime%>|<%showEbtn%>|<%scope%>|<%oprType%>|<%key%>|<%otherflag%>|<%rightflag%>|<%ver%>"></qz:fo></div></div>';
+
+var _cssSuffix = '';
+if (top.window.g_isGrayRelease) {
+	_cssSuffix = '-v9';
+}
+var coreCSSQueue = [
+	cssBegin,'https://qzonestyle.gtimg.cn/qzone_v5/app/app_icon.css',cssEnd,/*TODO 这个样式是不是需要去掉?*/
+	cssBegin,'https://qzonestyle.gtimg.cn/',('aoi/old-feed'+_cssSuffix+'.css'),cssEnd,
+	cssBegin,'https://qzonestyle.gtimg.cn/',('aoi/feed-home'+_cssSuffix+'.css'),cssEnd
+];
+coreCSSQueue = coreCSSQueue.concat(G_Param.CSSQueue);
+
+document.write(coreCSSQueue.join(''));
+</script><link rel="stylesheet" rev="stylesheet" href="./app_icon.css" type="text/css" media="screen"><link rel="stylesheet" rev="stylesheet" href="./old-feed.css" type="text/css" media="screen"><link rel="stylesheet" rev="stylesheet" href="./feed-home.css" type="text/css" media="screen"><link rel="stylesheet" rev="stylesheet" href="./app_icon(1).css" type="text/css" media="screen"><link rel="stylesheet" rev="stylesheet" href="./old-feed(1).css" type="text/css" media="screen"><link rel="stylesheet" rev="stylesheet" href="./feed-home(1).css" type="text/css" media="screen"><link rel="stylesheet" rev="stylesheet" href="./app_icon(2).css" type="text/css" media="screen"><link rel="stylesheet" rev="stylesheet" href="./old-feed-v9.css" type="text/css" media="screen"><link rel="stylesheet" rev="stylesheet" href="./feed-home-v9.css" type="text/css" media="screen"><link rel="stylesheet" rev="stylesheet" href="./1(1).css" id="qz_skin_style" type="text/css" media="screen">
+
+
+
+<link rev="stylesheet" rel="stylesheet" type="text/css" media="screen" href="./qz-tips-box.css"></head>
+
+	
+	
+	
+	
+
+
+
+<body class="ifeeds_body os-winxp mode_bg_opacity100" data-opacity="100" onload="bodyonload();" style="">
+<div class="ifeeds feed feed-v9 feed-home" id="ifeedsContainer">
+
+	<div id="ifeedsMode" class="feed_avaIcon_4 feed-inner feeds_style_4">
+		<ul id="host_home_feeds">                                                                                                                                                                 <li class="f-single f-s-s" id="fct_3559218313_311_0_1693152173_0_1"><div class="f-single-head f-aside"><div class="f-adorn-top"></div>    <div class="user-pto"><a href="http://user.qzone.qq.com/3559218313" target="_blank" class="user-avatar q_namecard f-s-a" link="nameCard_3559218313" data-clicklog="avatar"><img src="./50"></a></div><div class="user-op"><a href="javascript:;" class="arrow-down" data-cmd="qz_opr_more" data-moreoperate="1" fptimer="3667"><i class="fui-icon icon-arrow-down"></i></a>        </div><div class="user-info"><div class="f-nick"><a target="_blank" href="http://user.qzone.qq.com/3559218313" data-clicklog="nick" class="f-name q_namecard " link="nameCard_3559218313">GT-boy</a>  </div><div class="info-detail"><span class=" ui-mr8 state">358年1月4日 00:00</span><a href="javascript:;" data-cmd="qz_sign" class="f-sign-show state" title="我也要设置"></a></div></div></div><div class="f-single-content f-wrap"><div class="f-item f-s-i" id="feed_3559218313_311_0_1693152173_0_1" data-feedsflag="" data-iswupfeed="1" data-key="895c25d4af73eb642b130e00" data-specialtype="" data-extend-info="0_0_0_0_0_0_0|08009c8002002201|0000000000000000" data-functype="" data-hasfollowed="1"><div class="f-info">年纪轻轻就上了翡翠，终于成为这个游戏的  睾丸<img src="./e400408.gif" title=""><img src="./e400408.gif" title=""><img src="./e400408.gif" title=""></div><div class="qz_summary wupfeed" id="hex_3559218313_311_0_1693152173_0_1"><i class="none" name="feed_data" data-bitmap="08009c8002002201" data-yybitmap="0000000000000000" data-vipstarbitmap="0000020040000c00" data-fkey="895c25d4af73eb642b130e00" data-tid="895c25d4af73eb642b130e00" data-uin="3559218313" data-origfkey="" data-origtid="895c25d4af73eb642b130e00" data-origuin="3559218313" data-subid="" data-totweet="" data-issignin="" data-source="" data-retweetcount="0" data-stat="exNDgYmCtvi9VyJDUhVMqa4NPDbsWr5/EU9CxP7/6GFhiuYTj3lDVfIRqoYkz9dUa1fh26U!kKg6/lmEkzrFokHJZoQPwYQjEU9CxP7/6GFhiuYTj3lDVYimQq6aiDyJIoWQIDJtotShMxjZnrw7DSRR9qzp2sbEFDCcrz0ygCVwBfh9HHBkQmH/r1rnPMaSMzAkbzg1AwL5VVGORr6bEfZfFD5c0Lfk_" data-topicid="3559218313_895c25d4af73eb642b130e00__1" data-feedstype="100" data-abstime="1693152173" data-iswupfeed="1" data-platformid="52" data-accessright="1"></i><div class="f-ct "><div class="f-ct-txtimg fui-txtimg  "> <div class="txt-box ">                                        </div> <div class="img-box "><a class="img-item  " data-cmd="qz_popup" href="https://user.qzone.qq.com/3559218313/311/" data-topicid="3559218313_895c25d4af73eb642b130e00__1" data-pickey="895c25d4af73eb642b130e00,http://photonj.photo.store.qq.com/psc?/V54EeDZ5238Zix41HLqI0GmfR348aVBf/ruAMsa53pVQWN7FLK88i5kc4Ffr2h8jPMAgPBPWxSfYGCpxQfBosSTrnIWaXdU8tIL3IM9UkZanrJ10jWw4GsAM7XWQsGMRsmWHEp*zr5Pw!/b&amp;bo=8AXQAvAF0AIWECA!" data-clicklog="pic" data-originurl="||" hotclickpath="0_appid_311_v8.pic_count_1.pic_0" hotdomain="icv6act.qzone.qq.com" data-weishi_feedid="" data-version="2" data-param="895c25d4af73eb642b130e00|3559218313|0" data-src="/qzone/photo/zone/icenter_popup.html" data-width="1520" data-height="720" data-type="popup" data-title="" data-config="" data-extendinfo1="" data-extendinfo2="" data-extendinfo3="" data-extendinfo4="" data-extendinfo11=""><img src="./psc" style="height:265px;width:560px;"></a></div></div></div></div></div></div><div class="f-single-foot"><div class="f-op-detail f-detail content-line"><p class="op-list"><a class="item qz_retweet_btn " href="javascript:;" data-cmd="qz_popup" data-version="4" data-isnewtype="1" data-type="ForwardingBox" data-src="/qzone/app/controls/forwardingBox/forwardingBoxFacade.js" data-clicklog="retweet"><i class="fui-icon icon-op-share"></i></a><span class="item-line"></span>&nbsp;<a href="javascript:;" data-version="6.3" data-cmd="qz_reply" data-link="1" data-clicklog="comment" class=" qz_btn_reply item "><i class="fui-icon icon-op-comment"></i></a>&nbsp;<span class="item-line"></span><a class="item qz_like_btn_v3 item-on" data-islike="1" data-likecnt="4" data-showcount="3" data-unikey="http://user.qzone.qq.com/3559218313/mood/895c25d4af73eb642b130e00" data-curkey="http://user.qzone.qq.com/3559218313/mood/895c25d4af73eb642b130e00" data-clicklog="cancellike" href="javascript:;"><i class="fui-icon icon-op-praise"></i></a></p><a href="javascript:;" class="state qz_feed_plugin" data-role="Visitor" data-config="311|895c25d4af73eb642b130e00|3559218313" data-clicklog="visitor"> IP:缅甸</a></div>        <div class="f-ang-t"></div><div class="f-like-list f-like _likeInfo" likeinfo="4"><div class="icon-btn"><a href="javascript:;" data-islike="1" data-likecnt="4" data-showcount="4" data-unikey="http://user.qzone.qq.com/3559218313/mood/895c25d4af73eb642b130e00" data-curkey="http://user.qzone.qq.com/3559218313/mood/895c25d4af73eb642b130e00" data-clicklog="like" class="praise qz_like_prase"><i class="fui-icon icon-list-praise"></i></a><div class="bubble" style="display:none;"><div class="bd">+1</div><b class="arrow arrow-down"></b></div></div><div class="user-list"><a href="http://user.qzone.qq.com/3575584276" link="nameCard_3575584276 des_3575584276" class="item _ownerlike q_namecard" target="_blank">、、</a><a href="http://user.qzone.qq.com/1970912935" class="item q_namecard" target="_blank" link="nameCard_1970912935 des_1970912935">许乐</a>、<a href="http://user.qzone.qq.com/3559218313" class="item q_namecard" target="_blank" link="nameCard_3559218313 des_3559218313">GT-boy</a>、<a href="http://user.qzone.qq.com/3131982178" class="item q_namecard" target="_blank" link="nameCard_3131982178 des_3131982178">邢道荣</a>共<span class="f-like-cnt">4</span>人觉得很赞</div></div><div class="mod-comments" style="padding:0"><div class="comments-list "><ul><li class="comments-item bor3" data-type="commentroot" data-tid="1" data-uin="3377351302" data-nick="daylight" data-who="1"><div class="comments-item-bd"><div class="single-reply"><div class="ui-avatar"><a href="http://user.qzone.qq.com/3377351302" target="_blank"><img class="q_namecard" link="nameCard_3377351302 des_3377351302" alt="daylight" src="./30"></a></div><div class="comments-content"><a class="nickname name c_tx q_namecard" link="nameCard_3377351302" target="_blank" href="http://user.qzone.qq.com/3377351302">daylight</a>&nbsp; : 睾丸<div class="comments-op"><span class=" ui-mr10 state">昨天 09:49</span><a class="act-reply none" href="javascript:;" data-cmd="qz_reply" data-version="6.4" data-action="http://taotao.qq.com/cgi-bin/emotion_cgi_re_feeds" data-param="t1_source=&amp;t1_uin=3559218313&amp;t1_tid=895c25d4af73eb642b130e00&amp;t2_uin=3377351302&amp;t2_tid=1&amp;subdotype=55802&amp;signin=0&amp;sceneid=100" data-charset="utf-8" data-tuin="" data-config="1|1|1|0|1,taotaoact.qzone.qq.com,@InputReply|1,taotaoact.qzone.qq.com,@ClickReply|1,taotaoact.qzone.qq.com,commentPresentClick"><b class="hide-clip">回复</b></a></div></div></div><div class="comments-list mod-comments-sub"><ul><li class="comments-item bor3" data-type="replyroot" data-tid="1" data-uin="3559218313" data-nick="董事长" data-who="1"><div class="comments-item-bd"><div class="single-reply"><div class="ui-avatar"><a href="http://user.qzone.qq.com/3559218313" target="_blank"><img class="q_namecard" link="nameCard_3559218313 des_3559218313" alt="董事长" src="./30(1)"></a></div><div class="comments-content"><a class="nickname name c_tx q_namecard" link="nameCard_3559218313" target="_blank" href="http://user.qzone.qq.com/3559218313">GT-boy</a>&nbsp;回复<a class="nickname name c_tx q_namecard" link="nameCard_3377351302" target="_blank" href="http://user.qzone.qq.com/3377351302">daylight</a>&nbsp; : 搞鸡玩家<img src="./e140.png" title=""><div class="comments-op"><span class=" ui-mr10 state">昨天 21:53</span><a class="act-reply none" href="javascript:;" data-cmd="qz_reply" data-version="6.4" data-action="http://taotao.qq.com/cgi-bin/emotion_cgi_re_feeds" data-param="t1_source=&amp;t1_uin=3559218313&amp;t1_tid=895c25d4af73eb642b130e00&amp;t2_uin=3377351302&amp;t2_tid=1&amp;subdotype=55802&amp;signin=0&amp;sceneid=100" data-charset="utf-8" data-tuin="" data-config="1|1|1|0|1,taotaoact.qzone.qq.com,@InputReply|1,taotaoact.qzone.qq.com,@ClickReply|1,taotaoact.qzone.qq.com,commentPresentClick"><b class="hide-clip">回复</b></a></div></div></div></div></li></ul></div></div></li><li class="comments-item bor3" data-type="commentroot" data-tid="2" data-uin="2878669723" data-nick="嗯好" data-who="1"><div class="comments-item-bd"><div class="single-reply"><div class="ui-avatar"><a href="http://user.qzone.qq.com/2878669723" target="_blank"><img class="q_namecard" link="nameCard_2878669723 des_2878669723" alt="嗯好" src="./30(2)"></a></div><div class="comments-content"><a class="nickname name c_tx q_namecard" link="nameCard_2878669723" target="_blank" href="http://user.qzone.qq.com/2878669723">嗯好</a>&nbsp; : 什么人机游戏<div class="comments-op"><span class=" ui-mr10 state">昨天 12:48</span><a class="act-reply none" href="javascript:;" data-cmd="qz_reply" data-version="6.4" data-action="http://taotao.qq.com/cgi-bin/emotion_cgi_re_feeds" data-param="t1_source=&amp;t1_uin=3559218313&amp;t1_tid=895c25d4af73eb642b130e00&amp;t2_uin=2878669723&amp;t2_tid=2&amp;subdotype=55802&amp;signin=0&amp;sceneid=100" data-charset="utf-8" data-tuin="" data-config="1|1|1|0|1,taotaoact.qzone.qq.com,@InputReply|1,taotaoact.qzone.qq.com,@ClickReply|1,taotaoact.qzone.qq.com,commentPresentClick"><b class="hide-clip">回复</b></a></div></div></div><div class="comments-list mod-comments-sub"><ul><li class="comments-item bor3" data-type="replyroot" data-tid="1" data-uin="3559218313" data-nick="董事长" data-who="1"><div class="comments-item-bd"><div class="single-reply"><div class="ui-avatar"><a href="http://user.qzone.qq.com/3559218313" target="_blank"><img class="q_namecard" link="nameCard_3559218313 des_3559218313" alt="董事长" src="./30(1)"></a></div><div class="comments-content"><a class="nickname name c_tx q_namecard" link="nameCard_3559218313" target="_blank" href="http://user.qzone.qq.com/3559218313">GT-boy</a>&nbsp;回复<a class="nickname name c_tx q_namecard" link="nameCard_2878669723" target="_blank" href="http://user.qzone.qq.com/2878669723">嗯好</a>&nbsp; : 你懂个屁<div class="comments-op"><span class=" ui-mr10 state">昨天 13:13</span><a class="act-reply none" href="javascript:;" data-cmd="qz_reply" data-version="6.4" data-action="http://taotao.qq.com/cgi-bin/emotion_cgi_re_feeds" data-param="t1_source=&amp;t1_uin=3559218313&amp;t1_tid=895c25d4af73eb642b130e00&amp;t2_uin=2878669723&amp;t2_tid=2&amp;subdotype=55802&amp;signin=0&amp;sceneid=100" data-charset="utf-8" data-tuin="" data-config="1|1|1|0|1,taotaoact.qzone.qq.com,@InputReply|1,taotaoact.qzone.qq.com,@ClickReply|1,taotaoact.qzone.qq.com,commentPresentClick"><b class="hide-clip">回复</b></a></div></div></div></div></li></ul></div></div></li><li class="comments-item bor3" data-type="commentroot" data-tid="3" data-uin="1978672337" data-nick="39" data-who="1"><div class="comments-item-bd"><div class="single-reply"><div class="ui-avatar"><a href="http://user.qzone.qq.com/1978672337" target="_blank"><img class="q_namecard" link="nameCard_1978672337 des_1978672337" alt="39" src="./30(3)"></a></div><div class="comments-content"><a class="nickname name c_tx q_namecard" link="nameCard_1978672337" target="_blank" href="http://user.qzone.qq.com/1978672337">39</a>&nbsp; : 人机<div class="comments-op"><span class=" ui-mr10 state">昨天 13:28</span><a class="act-reply none" href="javascript:;" data-cmd="qz_reply" data-version="6.4" data-action="http://taotao.qq.com/cgi-bin/emotion_cgi_re_feeds" data-param="t1_source=&amp;t1_uin=3559218313&amp;t1_tid=895c25d4af73eb642b130e00&amp;t2_uin=1978672337&amp;t2_tid=3&amp;subdotype=55802&amp;signin=0&amp;sceneid=100" data-charset="utf-8" data-tuin="" data-config="1|1|1|0|1,taotaoact.qzone.qq.com,@InputReply|1,taotaoact.qzone.qq.com,@ClickReply|1,taotaoact.qzone.qq.com,commentPresentClick"><b class="hide-clip">回复</b></a></div></div></div></div></li></ul></div><div class="mod-commnets-poster feedClickCmd comment_default_inputentry" data-cmd="qz_reply" data-version="6" data-action="http://taotao.qq.com/cgi-bin/emotion_cgi_re_feeds" data-param="t1_source=&amp;t1_uin=3559218313&amp;t1_tid=895c25d4af73eb642b130e00&amp;signin=0&amp;sceneid=100" data-charset="utf-8" data-maxlength="" data-tuin="3559218313" data-config="1|1|1|1,b52,with_fwd,同时转发;0|1,taotaoact.qzone.qq.com,@InputReply|1,taotaoact.qzone.qq.com,@ClickReply|1,taotaoact.qzone.qq.com,commentPresentClick" data-tid=""><div class="comments-poster-bd comments-poster-default"><div class="comments-box" data-clicklog="comment"><div class="textinput textinput-default bor2" contenteditable="true" alt="replybtn" placeholder="评论"><a class="c_tx3" href="javascript:void(0);" alt="replybtn">评论</a></div><div class="mod-insert-img"><a href="javascript:;" data-cmd="qz_quick_upload_img" class="btn-insert-img bg"><i class="icon-camera-16"></i></a></div></div></div></div></div>    </div></li>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </ul>
+	</div>
+
+	
+
+	<div id="goProfileFeedsLink" style="display:none;" class="check-more update-more bor">
+		<a href="javascript:;" class="b-inline c_tx" onclick="QZONE.FP.toApp(&#39;/profile/feeds&#39;);return false;">更多动态信息</a>
+	</div>
+
+</div>
+
+<div id="GRZOPTParserContainer" style="display:none"></div>
+
+<script type="text/javascript">
+	var ver = top.g_V || {};
+	ver.qz = ver.qz || "_2.1.31";
+	ver.sea = ver.sea || "2.0.0";
+	ver.jq = ver.jq || "2.0.0";
+	ver.proto = window.location.protocol;
+	try{
+		ver.proto = top.g_cdn_proto || window.location.protocol;
+	}catch(err){
+
+	}
+	
+	document.write([
+		_jsBegin,ver.proto ,'//'+ g_sid + 'ac/qzone/qzfl/qzfl', ver.qz, ".js", _jsEnd,
+		_jsBegin,ver.proto ,'//'+ g_sid + 'ac/lib/seajs/sea-', ver.sea, ".js", _jsEnd,
+		_jsBegin,ver.proto ,'//'+ g_sid + 'qzone/v8/core/seajs_config.js', _jsEnd,
+		_jsBegin,window.location.protocol , '//tajs.qq.com/stats?sId=53225730', _jsEnd
+	].join(""));
+</script><script type="text/javascript" charset="utf-8" src="file://qzonestyle.gtimg.cn/ac/qzone/qzfl/qzfl_2.1.31.js"></script><script type="text/javascript" charset="utf-8" src="file://qzonestyle.gtimg.cn/ac/lib/seajs/sea-2.0.0.js"></script><script type="text/javascript" charset="utf-8" src="file://qzonestyle.gtimg.cn/qzone/v8/core/seajs_config.js"></script><script type="text/javascript" charset="utf-8" src="file://tajs.qq.com/stats?sId=53225730"></script><script type="text/javascript" charset="utf-8" src="file://qzonestyle.gtimg.cn/ac/qzone/qzfl/qzfl_2.1.31.js"></script><script type="text/javascript" charset="utf-8" src="file://qzonestyle.gtimg.cn/ac/lib/seajs/sea-2.0.0.js"></script><script type="text/javascript" charset="utf-8" src="file://qzonestyle.gtimg.cn/qzone/v8/core/seajs_config.js"></script><script type="text/javascript" charset="utf-8" src="file://tajs.qq.com/stats?sId=53225730"></script><script type="text/javascript" charset="utf-8" src="./qzfl_v8_2.1.65.js"></script><script type="text/javascript" charset="utf-8" src="./sea-2.1.1.js"></script><script type="text/javascript" charset="utf-8" src="./seajs_config.js"></script><script type="text/javascript" charset="utf-8" src="https://tajs.qq.com/stats?sId=53225730"></script></body></html>
