@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>尚善有为，大器有成</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="eg.png">
+    <style>
+ body {
+  background-image: url("eg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"] {
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 20px;
+            padding: 15px;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0px 0px 10px #ccc;
+            width: 70%;
+            font-size: 20px;
+            outline: none;
+        }
+
+        button {
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 2px;
+            padding: 15px;
+            border-radius: 20px;
+            border: none;
+            background-color: #4db4f0d5;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px #ccc;
+            outline: none;
+        }
+
+        .nav {
+            margin-top: 50px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+
+        .nav a {
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: rgba(87, 137, 212, 0.753);
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            box-shadow: 0px 0px 10px #ccc;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav a:hover {
+            background-color: #1d90fcc9;
+        }
+
+        .banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            text-align: center;
+            font-size: 24px;
+            animation: scrollBanner 20s linear infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            text-shadow: none;
+        }
+
+        @keyframes scrollBanner {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .footer {
+            position: fixed;
+            bottom: 100px;
+            right: 100px;;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 30px;
+            color: #fff;
+            font-family: "微软雅黑", Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">尚善有为，大器有成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学会做人，做一个有益于社会的人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创新 实干 韧劲 团结 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;天道酬勤&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上善若水&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;和谐发展，和而不同</div>
+    <div class="container">
+        <form action="https://www.baidu.com/s" method="GET">
+            <input type="text" name="wd" placeholder="请输入搜索内容">
+            <button type="submit">百度一下</button>
+        </form>
+        <div class="nav">
+            <a href="https://www.baidu.com/">百度</a>
+            <a href="https://cn.bing.com/">必应</a>
+            <a href="https://www.bilibili.com/">哔哩哔哩</a>
+            <a href="https://tv.cctv.com/live/cctv13/">CCTV13</a>
+            <a href="https://quzhou.xueanquan.com/login.html">衢州安全教育平台</a>
+            <a href="https://qspfw.moe.gov.cn/">普法网</a>
+            <a href="https://www.zjzs.net/">浙江省教育考试院</a>
+            <a href="#"style="text-decoration: line-through;">关于本站</a>
+        </div>
+    </div>
+</div>
+<div class="footer">培养核心素养，造就幸福人生 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ——杨小牛
+</div>
+    <script>
+        // 禁止右键菜单
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        // 禁止复制粘贴
+        document.addEventListener('cut', function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener('copy', function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener('paste', function (e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+
+</html>
