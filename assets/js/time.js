@@ -28,7 +28,7 @@ function secondToDate(second) {
     var create_time = Math.round(new Date(Date.UTC(2023, 05, 03, 00, 00, 01)).getTime() / 1000);
     var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
     currentTime = secondToDate((timestamp - create_time));
-    currentTimeHtml = 'GT已成立：' + currentTime[0] + '年' + currentTime[1] + '天'
+    currentTimeHtml = 'GT已经导了：' + currentTime[0] + '年' + currentTime[1] + '天'
     + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
     + '秒';
     document.getElementById("htmer_time").innerHTML = currentTimeHtml;
