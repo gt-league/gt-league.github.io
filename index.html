@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>正在进入小破站</title>
+    <style>
+        body {
+            background-color: white;
+        }
+        
+        @font-face {
+            font-family: 'genshin-icon';
+            src: url('genshin-icon.ttf');
+        }
+
+        .loading-text {
+            color: #999999;
+            font-family: 'genshin-icon', sans-serif;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 50vh;
+            transform: translateY(-50%);
+            letter-spacing: 10px; 
+            cursor: default; 
+        }
+    </style>
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault(); 
+        });
+
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault(); 
+        });
+
+        document.addEventListener('copy', function(e) {
+            e.preventDefault(); 
+        });
+
+        window.onload = function() {
+            var text = document.querySelector('.loading-text');
+            var letters = text.textContent.split('');
+            text.innerHTML = ''; 
+            
+            letters.forEach(function(letter, index) {
+                var span = document.createElement('span');
+                span.textContent = letter;
+                text.appendChild(span);
+            });
+
+            var index = 0;
+            var spans = text.querySelectorAll('span');
+            var intervalId = setInterval(function() {
+                if (index < spans.length) {
+                    spans[index].style.color = '#666666';
+                    index++;
+                } else {
+                    clearInterval(intervalId);
+                    window.location.href = "main.html"; 
+                }
+            }, 500); 
+        };
+    </script>
+</head>
+<body>
+    <div class="loading-text">
+        Loading
+    </div>
+</body>
+</html>
